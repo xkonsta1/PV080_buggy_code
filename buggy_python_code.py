@@ -1,5 +1,3 @@
-import sys 
-import os
 import yaml
 import flask
 
@@ -39,7 +37,7 @@ def load_yaml(filename):
     stream = open(filename)
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
-    
+
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
@@ -52,8 +50,8 @@ if __name__ == '__main__':
     print("3. Yaml deserialization vulnerability: use string=file.yaml")
     print("4. Use of assert statements vulnerability: run program with -O argument")
     choice  = input("Select vulnerability: ")
-    if choice == "1": 
-        new_person = Person("Vickie")  
+    if choice == "1":
+        new_person = Person("Vickie")
         print_nametag(input("Please format your nametag: "), new_person)
     elif choice == "2":
         urlib_version = input("Choose version of urllib: ")
@@ -62,6 +60,5 @@ if __name__ == '__main__':
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
     elif choice == "4":
-        password = input("Enter master password: ")
+        PASSWORD = input("Enter master password: ")
         authenticate(password)
-
