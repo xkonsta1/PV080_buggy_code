@@ -26,7 +26,7 @@ def fetch_website(urllib_version, url):
     exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
  
-    try: 
+    try:
         http = urllib.PoolManager()
         r = http.request('GET', url)
     except:
@@ -43,9 +43,11 @@ def authenticate(password):
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
 
+
 if __name__ == '__main__':
     print("Vulnerabilities:")
-    print("1. Format string vulnerability: use string={person.__init__.__globals__[CONFIG][API_KEY]}")
+    print("1. Format string vulnerability: use string={
+          person.__init__.__globals__[CONFIG][API_KEY]}")
     print("2. Code injection vulnerability: use string=;print('Own code executed') #")
     print("3. Yaml deserialization vulnerability: use string=file.yaml")
     print("4. Use of assert statements vulnerability: run program with -O argument")
@@ -60,5 +62,5 @@ if __name__ == '__main__':
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
     elif choice == "4":
-        PASSWORD = input("Enter master password: ")
+        password = input("Enter master password: ")
         authenticate(password)
